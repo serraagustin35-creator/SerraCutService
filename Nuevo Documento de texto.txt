@@ -15,29 +15,10 @@
 * { box-sizing:border-box; margin:0; padding:0; }
 body {
   font-family:'Rye', cursive;
-  background: linear-gradient(rgba(15,13,11,0.92), rgba(15,13,11,0.92)), url('file_0000000049c871f59a56f6b17bf510f9.png
-') center/cover fixed no-repeat;
+  background: linear-gradient(rgba(15,13,11,0.92), rgba(15,13,11,0.92)), url('file_0000000049c871f59a56f6b17bf510f9.png') center/cover fixed no-repeat;
   color:#e6e2dc;
   letter-spacing:0.5px;
 }
-
-/* ENGRANAJE ANIMADO */
-body::before {
-  content:"";
-  position:fixed;
-  bottom:-120px;
-  right:-120px;
-  width:320px;
-  height:320px;
-  background:url('file_file_0000000049c871f59a56f6b17bf510f9.png') center/contain no-repeat;
-  opacity:0.08;
-  pointer-events:none;
-  filter:grayscale(100%) contrast(120%);
-  animation:slowRotate 40s linear infinite;
-}
-body.scrolling::before { animation:none; }
-@keyframes slowRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
 /* ANIMACIONES */
 @keyframes fadeUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
 @keyframes glow { 0%,100%{box-shadow:0 0 8px rgba(184,115,51,0.4);} 50%{box-shadow:0 0 18px rgba(224,184,120,0.9);} }
@@ -58,7 +39,7 @@ header p { text-align:center; font-size:1.05rem; color:#c9a36a; max-width:420px;
 /* SECCIONES */
 section { padding:70px 18px; max-width:1100px; margin:auto; }
 .section-title { text-align:center; font-size:1.9rem; margin-bottom:35px; color:#d6b27c; }
-.intro { background:linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)), url('1.png') center/cover no-repeat; border-top:2px solid #8b5e2e; border-bottom:2px solid #8b5e2e; }
+.intro { background:linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)), url('Screenshot_20260121-171421.png') center/cover no-repeat; border-top:2px solid #8b5e2e; border-bottom:2px solid #8b5e2e; }
 .intro p { text-align:center; font-size:1.15rem; max-width:520px; margin:18px auto; }
 
 /* PACKS */
@@ -134,9 +115,8 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
   <div class="logo-wrapper">
     <img src="IMG_20260122_004900_597.webp" alt="Logo Serra Cut Service" class="logo-animated">
   </div>
-  <h1 class="title-with-icon">
-    <span class="title-inner">
-     
+  <h1 class="title-text">
+
       <span class="title-text">SERRA CUT SERVICE</span>
     </span>
   </h1>
@@ -167,7 +147,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>10% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack Esencial.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_esencial.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/1jxGZbX" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
@@ -189,7 +169,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>25% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack Master.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_master.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/2zxM2BK" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
@@ -210,7 +190,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>50% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack V.I.P.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_vip.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/1r8shQC" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
