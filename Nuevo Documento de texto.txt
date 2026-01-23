@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serra Cut Service | Reparación Profesional de Barbería</title>
+<meta name="description" content="Mantenimiento profesional de máquinas y herramientas de barbería. Packs de Mantenimiento profesional.">
+
+<!-- FUENTE RYE -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'Rye', cursive;
+  background: linear-gradient(rgba(15,13,11,0.92), rgba(15,13,11,0.92)), url('IMG_20260122_004900_597.webp') center/cover fixed no-repeat;
+  color:#e6e2dc;
+  letter-spacing:0.5px;
+}
+
+/* ENGRANAJE ANIMADO */
+body::before {
+  content:"";
+  position:fixed;
+  bottom:-120px;
+  right:-120px;
+  width:320px;
+  height:320px;
+  background:url('IMG_20260122_004900_597.webp') center/contain no-repeat;
+  opacity:0.08;
+  pointer-events:none;
+  filter:grayscale(100%) contrast(120%);
+  animation:slowRotate 40s linear infinite;
+}
+body.scrolling::before { animation:none; }
+@keyframes slowRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+/* ANIMACIONES */
+@keyframes fadeUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+@keyframes glow { 0%,100%{box-shadow:0 0 8px rgba(184,115,51,0.4);} 50%{box-shadow:0 0 18px rgba(224,184,120,0.9);} }
+@keyframes logoPulse {0%,100%{box-shadow:0 0 0 rgba(184,115,51,0);}50%{box-shadow:0 0 35px rgba(224,184,120,0.6);}}
+@keyframes logoFloat {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+section, header, .pack { animation:fadeUp 0.9s ease forwards; }
+
+/* HEADER */
+.logo-wrapper { width:160px; height:160px; margin:0 auto 30px; border-radius:50%; padding:6px; background:linear-gradient(135deg,#b87333,#e0b878); animation:logoPulse 4s ease-in-out infinite; }
+.logo-animated { width:100%; height:100%; object-fit:cover; border-radius:50%; background:#000; box-shadow:0 15px 35px rgba(0,0,0,0.85); animation:logoFloat 6s ease-in-out infinite; }
+header h1 { font-size:2.6rem; text-align:center; text-transform:uppercase; color:#f0e6d2; text-shadow:0 2px 0 #000,0 0 15px rgba(184,115,51,0.6); margin-bottom:15px; letter-spacing:4px; }
+.title-inner { display:inline-flex; align-items:center; gap:14px; justify-content:center; }
+.title-icon { width:34px; height:34px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.8)); }
+header h1::after { content:""; display:block; width:180px; height:4px; margin:18px auto 0; background:linear-gradient(90deg,#b87333,#e0b878,#b87333); }
+header p { text-align:center; font-size:1.05rem; color:#c9a36a; max-width:420px; margin:auto; }
+
+/* SECCIONES */
+section { padding:70px 18px; max-width:1100px; margin:auto; }
+.section-title { text-align:center; font-size:1.9rem; margin-bottom:35px; color:#d6b27c; }
+.intro { background:linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)), url('1.png') center/cover no-repeat; border-top:2px solid #8b5e2e; border-bottom:2px solid #8b5e2e; }
+.intro p { text-align:center; font-size:1.15rem; max-width:520px; margin:18px auto; }
+
+/* PACKS */
+.packs { display:grid; grid-template-columns:1fr; gap:28px; }
+.pack {
+  background:linear-gradient(180deg,#1a1612,#0f0d0b);
+  border:2px solid #b87333; padding:25px 20px; border-radius:12px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.6);
+  color:inherit; display:flex; flex-direction:column; position:relative;
+  transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
+}
+.pack:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.8);
+  background:linear-gradient(180deg,#1f1914,#130f0c);
+}
+.recommended { position:absolute; top:-12px; right:-12px; background:linear-gradient(135deg,#b87333,#e0b878); color:#120c07; padding:6px 14px; font-size:0.75rem; letter-spacing:1px; border-radius:20px; animation:glow 2.5s infinite; text-transform:uppercase; }
+.pack h3 { font-size:1.35rem; margin-bottom:8px; text-transform:uppercase; text-align:center; }
+.price { font-size:1.5rem; color:#e0b878; margin-bottom:15px; text-align:center; }
+.pack ul { padding-left:18px; margin-bottom:20px; }
+.pack ul li { margin-bottom:8px; line-height:1.4; text-align:center; }
+
+/* BOTONES DENTRO DEL PACK */
+.pack .buttons {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  margin-top:auto;
+  width:100%;
+}
+
+.buy, .contract-btn {
+  display:block;
+  text-align:center;
+  width:150px;
+  padding:10px 0;
+  border-radius:25px;
+  background:linear-gradient(135deg,#b87333,#e0b878);
+  color:#120c07;
+  font-size:0.8rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+  cursor:pointer;
+}
+.buy:hover, .contract-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.7);
+  background:linear-gradient(135deg,#e0b878,#b87333);
+}
+
+/* CTA */
+.cta { background:linear-gradient(135deg,#b87333,#e0b878); color:#120c07; text-align:center; padding:80px 18px; }
+.cta h2 { font-size:2rem; margin-bottom:14px; text-transform:uppercase; }
+.cta a { background:#000; color:#c9a36a; padding:14px 28px; border-radius:30px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; margin:10px; transition:background .3s ease; }
+.cta a:hover { background:#222; }
+
+footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.85rem; color:#888; }
+
+@media(min-width:768px){
+  body::before{width:420px;height:420px;bottom:-160px;right:-160px;}
+  header h1{font-size:3.4rem;letter-spacing:6px;}
+  .packs{grid-template-columns:repeat(3,1fr);}
+  .section-title{font-size:2.2rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrapper">
+    <img src="IMG_20260122_004900_597.webp" alt="Logo Serra Cut Service" class="logo-animated">
+  </div>
+  <h1 class="title-with-icon">
+    <span class="title-inner">
+      <img src="file_000000005a68720ebda89e11eea0071b.png" alt="Instagram" class="title-icon">
+      <span class="title-text">SERRA CUT SERVICE</span>
+    </span>
+  </h1>
+  <p>Reparación y Mantenimiento Profesional de Herramientas de Barbería y Peluquería</p>
+</header>
+
+<section class="intro">
+  <h2 class="section-title">Servicio Técnico Especializado</h2>
+  <p>No reparamos máquinas.</p>
+  <p>Garantizamos que tu trabajo no se detenga.</p>
+  <p>Trabajamos con paquetes de mantenimiento profesional para barberías que no pueden parar.</p>
+</section>
+
+<section>
+  <h2 class="section-title">Packs de Mantenimiento</h2>
+  <div class="packs">
+
+    <!-- PACK ESENCIAL -->
+    <div class="pack">
+      <h3>🪛 Pack Esencial</h3>
+      <span>Mantenimiento Continuo</span>
+      <div class="price">$25.000 / mes</div>
+      <ul>
+        <li>1 mantenimiento mensual</li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de tijeras</li>
+        <li>10% OFF en repuestos</li>
+      </ul>
+      <div class="buttons">
+        <a href="contrato_pack_esencial.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="https://mpago.la/1jxGZbX" target="_blank" class="buy">Contratar Pack</a>
+      </div>
+    </div>
+
+    <!-- PACK MASTER -->
+    <div class="pack">
+      <div class="recommended">Recomendado</div>
+      <h3>💈 Pack Master</h3>
+      <span>Barbería sin fallas</span>
+      <div class="price">$40.000 / mes</div>
+      <ul>
+        <li>2 mantenimientos mensuales</li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Prioridad de atención</li>
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de Tijeras</li>
+        <li>Retiro y entrega a domicilio</li>
+        <li>Garantía extendida de 15 dias</li>
+        <li>25% OFF en repuestos</li>
+      </ul>
+      <div class="buttons">
+        <a href="contrato_pack_master.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="https://mpago.la/2zxM2BK" target="_blank" class="buy">Contratar Pack</a>
+      </div>
+    </div>
+
+    <!-- PACK VIP -->
+    <div class="pack">
+      <h3>⭐ Pack VIP</h3>
+      <span>Servicio Total</span>
+      <div class="price">$60.000 / mes</div>
+      <ul>
+        <li>4 mantenimientos mensuales</li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Maxima prioridad de atención</li>
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de Tijeras y mantenimiento de secadores y planchas</li>
+        <li>Retiro y entrega a domicilio</li>
+        <li>Garantía extendida de 30 dias</li>
+        <li>50% OFF en repuestos</li>
+      </ul>
+      <div class="buttons">
+        <a href="contrato_pack_vip.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="https://mpago.la/1r8shQC" target="_blank" class="buy">Contratar Pack</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Cuidá tu herramienta de trabajo</h2>
+  <p>Contactanos y asegurá el rendimiento de tus equipos.</p>
+  <a href="https://wa.me/5492983347461" target="_blank"><img src="social.png" alt="Whatsapp" style="width:20px;height:20px;">Whatsapp</a>
+  <a href="https://instagram.com/serra_cut_service" target="_blank"><img src="instagram.png" alt="Instagram" style="width:20px;height:20px;">Instagram</a>
+</section>
+
+<footer>© Serra Cut Service – Reparación Profesional de Barbería</footer>
+
+<script>
+let rotation=0,lastScrollY=window.scrollY;
+window.addEventListener('scroll',()=>{
+  const delta=window.scrollY-lastScrollY;
+  rotation+=delta*0.15;
+  document.body.classList.add('scrolling');
+  document.body.style.setProperty('--gear-transform',`rotate(${rotation}deg)`);
+  lastScrollY=window.scrollY;
+});
+</script>
+
+</body>
+</html>
