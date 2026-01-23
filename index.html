@@ -19,24 +19,6 @@ body {
   color:#e6e2dc;
   letter-spacing:0.5px;
 }
-
-/* MICRO ANIMACIÓN ENGRANAJE */
-body::before {
-  content:"";
-  position:fixed;
-  bottom:-120px;
-  right:-120px;
-  width:320px;
-  height:320px;
-  background:url('file_0000000049c871f59a56f6b17bf510f9.png') center/contain no-repeat;
-  opacity:0.08;
-  pointer-events:none;
-  filter:grayscale(100%) contrast(120%);
-  animation:slowRotate 40s linear infinite;
-}
-body.scrolling::before { animation:none; }
-@keyframes slowRotate { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
 /* ANIMACIONES */
 @keyframes fadeUp { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
 @keyframes glow { 0%,100%{box-shadow:0 0 8px rgba(184,115,51,0.4);} 50%{box-shadow:0 0 18px rgba(224,184,120,0.9);} }
@@ -57,21 +39,25 @@ header p { text-align:center; font-size:1.05rem; color:#c9a36a; max-width:420px;
 /* SECCIONES */
 section { padding:70px 18px; max-width:1100px; margin:auto; }
 .section-title { text-align:center; font-size:1.9rem; margin-bottom:35px; color:#d6b27c; }
-.intro { background:linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)), url('1.png') center/cover no-repeat; border-top:2px solid #8b5e2e; border-bottom:2px solid #8b5e2e; }
+.intro { background:linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)), url('Screenshot_20260121-171421.png') center/cover no-repeat; border-top:2px solid #8b5e2e; border-bottom:2px solid #8b5e2e; }
 .intro p { text-align:center; font-size:1.15rem; max-width:520px; margin:18px auto; }
 
 /* PACKS */
 .packs { display:grid; grid-template-columns:1fr; gap:28px; }
 .pack {
   background:linear-gradient(180deg,#1a1612,#0f0d0b);
-  border:2px solid #b87333; padding:25px 20px; border-radius:10px;
-  box-shadow: inset 0 0 0 1px #000,0 18px 45px rgba(0,0,0,0.75);
+  border:2px solid #b87333; padding:25px 20px; border-radius:12px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.6);
   color:inherit; display:flex; flex-direction:column; position:relative;
-  transition: transform .35s ease, box-shadow .35s ease;
+  transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
 }
-.pack:hover { transform:translateY(-6px); box-shadow:0 25px 60px rgba(0,0,0,0.9); }
-.recommended { position:absolute; top:-12px; right:-12px; background:linear-gradient(135deg,#b87333,#e0b878); color:#120c07; padding:6px 14px; font-size:0.7rem; letter-spacing:1px; border-radius:20px; animation:glow 2.5s infinite; text-transform:uppercase; }
-.pack h3 { font-size:1.3rem; margin-bottom:8px; text-transform:uppercase; text-align:center; }
+.pack:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.8);
+  background:linear-gradient(180deg,#1f1914,#130f0c);
+}
+.recommended { position:absolute; top:-12px; right:-12px; background:linear-gradient(135deg,#b87333,#e0b878); color:#120c07; padding:6px 14px; font-size:0.75rem; letter-spacing:1px; border-radius:20px; animation:glow 2.5s infinite; text-transform:uppercase; }
+.pack h3 { font-size:1.35rem; margin-bottom:8px; text-transform:uppercase; text-align:center; }
 .price { font-size:1.5rem; color:#e0b878; margin-bottom:15px; text-align:center; }
 .pack ul { padding-left:18px; margin-bottom:20px; }
 .pack ul li { margin-bottom:8px; line-height:1.4; text-align:center; }
@@ -81,15 +67,15 @@ section { padding:70px 18px; max-width:1100px; margin:auto; }
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px; /* espacio entre botones */
-  margin-top:auto; /* empuja los botones al fondo */
+  gap:8px;
+  margin-top:auto;
   width:100%;
 }
 
 .buy, .contract-btn {
   display:block;
   text-align:center;
-  width:160px;
+  width:150px;
   padding:10px 0;
   border-radius:25px;
   background:linear-gradient(135deg,#b87333,#e0b878);
@@ -98,15 +84,20 @@ section { padding:70px 18px; max-width:1100px; margin:auto; }
   letter-spacing:1px;
   text-transform:uppercase;
   text-decoration:none;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
   cursor:pointer;
 }
-.buy:hover, .contract-btn:hover { transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,0.8); }
+.buy:hover, .contract-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.7);
+  background:linear-gradient(135deg,#e0b878,#b87333);
+}
 
 /* CTA */
 .cta { background:linear-gradient(135deg,#b87333,#e0b878); color:#120c07; text-align:center; padding:80px 18px; }
 .cta h2 { font-size:2rem; margin-bottom:14px; text-transform:uppercase; }
-.cta a { background:#000; color:#c9a36a; padding:14px 28px; border-radius:30px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; margin:10px; }
+.cta a { background:#000; color:#c9a36a; padding:14px 28px; border-radius:30px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; margin:10px; transition:background .3s ease; }
+.cta a:hover { background:#222; }
 
 footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.85rem; color:#888; }
 
@@ -124,9 +115,8 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
   <div class="logo-wrapper">
     <img src="IMG_20260122_004900_597.webp" alt="Logo Serra Cut Service" class="logo-animated">
   </div>
-  <h1 class="title-with-icon">
-    <span class="title-inner">
-      <img src="file_000000005a68720ebda89e11eea0071b.png" alt="Instagram" class="title-icon">
+  <h1 class="title-text">
+
       <span class="title-text">SERRA CUT SERVICE</span>
     </span>
   </h1>
@@ -157,7 +147,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>10% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack Esencial.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_esencial.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/1jxGZbX" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
@@ -179,7 +169,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>25% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack Master.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_master.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/2zxM2BK" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
@@ -200,7 +190,7 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
         <li>50% OFF en repuestos</li>
       </ul>
       <div class="buttons">
-        <a href="Contratos Packs – Serra Cut Service - Pack V.I.P.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
+        <a href="contrato_pack_vip.pdf" target="_blank" class="contract-btn">Contrato del Pack</a>
         <a href="https://mpago.la/1r8shQC" target="_blank" class="buy">Contratar Pack</a>
       </div>
     </div>
@@ -219,7 +209,13 @@ footer { background:#0f0f0f; text-align:center; padding:26px 18px; font-size:0.8
 
 <script>
 let rotation=0,lastScrollY=window.scrollY;
-window.addEventListener('scroll',()=>{const delta=window.scrollY-lastScrollY;rotation+=delta*0.15;document.body.classList.add('scrolling');document.body.style.setProperty('--gear-transform',`rotate(${rotation}deg)`);lastScrollY=window.scrollY;});
+window.addEventListener('scroll',()=>{
+  const delta=window.scrollY-lastScrollY;
+  rotation+=delta*0.15;
+  document.body.classList.add('scrolling');
+  document.body.style.setProperty('--gear-transform',`rotate(${rotation}deg)`);
+  lastScrollY=window.scrollY;
+});
 </script>
 
 </body>
