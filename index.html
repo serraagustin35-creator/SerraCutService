@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serra Cut Service | Mantenimiento Profesional</title>
-  <meta name="description" content="Mantenimiento profesional de máquinas y herramientas de barbería. Packs de servicio técnico especializado.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serra Cut Service | Reparación Profesional de Barbería</title>
+  <meta name="description" content="Mantenimiento profesional de máquinas y herramientas de barbería. Packs de Mantenimiento profesional." />
 
   <!-- FUENTE RYE -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,42 +12,68 @@
   <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --gold: #e0b878;
-      --bronze: #b87333;
-      --dark: #0f0d0b;
-      --text: #e6e2dc;
-    }
+    
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Rye', cursive;
-      color: var(--text);
-      background:
-        linear-gradient(rgba(15,13,11,.92), rgba(15,13,11,.92)),
-        url('IMG_20260122_004900_597.webp') center/cover fixed no-repeat;
-    }
-
+    /* ========= MICRO ANIMACIÓN ENGRANAJE ========= */
     body::before {
       content: "";
       position: fixed;
-      bottom: -140px;
-      right: -140px;
-      width: 380px;
-      height: 380px;
+      bottom: -120px;
+      right: -120px;
+      width: 320px;
+      height: 320px;
       background: url('IMG_20260122_004900_597.webp') center/contain no-repeat;
-      opacity: .06;
+      opacity: 0.08;
       pointer-events: none;
-      animation: spin 40s linear infinite;
+      animation: slowRotate 40s linear infinite;
+      filter: grayscale(100%) contrast(120%);
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    header {
-      text-align: center;
-      padding: 90px 20px 70px;
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
+
+    /* ===== ENGRANAJE CONTROLADO POR SCROLL ===== */
+    body.scrolling::before {
+      animation: none;
+    }
+      to { transform: rotate(360deg); }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Rye', cursive;
+      background:
+        linear-gradient(rgba(15,13,11,0.92), rgba(15,13,11,0.92)),
+        url('IMG_20260122_004900_597.webp') center/cover fixed no-repeat;
+      color: #e6e2dc;
+      letter-spacing: 0.5px;
+    }
+
+    h1, h2, h3, p, li, a, span {
+      font-family: 'Rye', cursive;
+    }
+
+    /* ================= ANIMACIONES ================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 8px rgba(184,115,51,0.4); }
+      50% { box-shadow: 0 0 18px rgba(224,184,120,0.9); }
+      100% { box-shadow: 0 0 8px rgba(184,115,51,0.4); }
+    }
+
+    section, header, .pack {
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    /* ================= HEADER ================= */
 
     .logo-wrapper {
       width: 160px;
@@ -55,60 +81,105 @@
       margin: 0 auto 30px;
       border-radius: 50%;
       padding: 6px;
-      background: linear-gradient(135deg, var(--bronze), var(--gold));
-      animation: pulse 4s infinite;
+      background: linear-gradient(135deg, #b87333, #e0b878);
+      animation: logoPulse 4s ease-in-out infinite;
     }
 
-    .logo-wrapper img {
+    .logo-animated {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
+      border-radius: 50%;
       background: #000;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+      animation: logoFloat 6s ease-in-out infinite;
     }
 
-    @keyframes pulse {
-      50% { box-shadow: 0 0 35px rgba(224,184,120,.6); }
+    @keyframes logoPulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(184,115,51,0.0); }
+      50% { box-shadow: 0 0 35px rgba(224,184,120,0.6); }
     }
 
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 5px;
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      letter-spacing: 4px;
+      margin: 0 auto 15px;
       text-transform: uppercase;
-      margin-bottom: 15px;
-      text-shadow: 0 0 18px rgba(184,115,51,.6);
+      color: #f0e6d2;
+      text-shadow: 0 2px 0 #000, 0 0 15px rgba(184,115,51,0.6);
+      text-align: center;
+      width: 100%;
+    }
+
+    .title-inner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .title-text {
+      display: inline-block;
+      text-align: center;
+    }
+
+    .title-icon {
+      width: 34px;
+      height: 34px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
+    }
+
+    header h1::after {
+      content: "";
+      display: block;
+      width: 180px;
+      height: 4px;
+      margin: 18px auto 0;
+      background: linear-gradient(90deg, #b87333, #e0b878, #b87333);
     }
 
     header p {
-      color: var(--gold);
-      max-width: 460px;
+      font-size: 1.05rem;
+      color: #c9a36a;
+      max-width: 420px;
       margin: auto;
     }
 
+    /* ================= SECCIONES ================= */
     section {
+      padding: 70px 18px;
       max-width: 1100px;
       margin: auto;
-      padding: 70px 20px;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: var(--gold);
+      font-size: 1.9rem;
+      margin-bottom: 35px;
+      color: #d6b27c;
     }
 
     .intro {
       background:
-        linear-gradient(rgba(20,17,14,.85), rgba(20,17,14,.85)),
-        url('file_00000000d64c720e8a160185a9b8bab6.png') center/cover no-repeat;
-      border-top: 2px solid var(--bronze);
-      border-bottom: 2px solid var(--bronze);
-      text-align: center;
+        linear-gradient(rgba(20,17,14,0.85), rgba(20,17,14,0.85)),
+        url('1.png') center/cover no-repeat;
+      border-top: 2px solid #8b5e2e;
+      border-bottom: 2px solid #8b5e2e;
     }
 
-    .intro p { max-width: 520px; margin: 16px auto; }
+    .intro p {
+      text-align: center;
+      font-size: 1.15rem;
+      margin: 18px auto;
+      max-width: 520px;
+    }
 
+    /* ================= PACKS ================= */
     .packs {
       display: grid;
       grid-template-columns: 1fr;
@@ -116,31 +187,338 @@
     }
 
     .pack {
-      position: relative;
-      background: linear-gradient(180deg, #1a1612, var(--dark));
-      border: 2px solid var(--bronze);
-      border-radius: 12px;
-      padding: 34px 28px;
-      color: inherit;
+      background: linear-gradient(180deg, #1a1612, #0f0d0b);
+      border: 2px solid #b87333;
+      padding: 32px 28px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 1px #000, 0 18px 45px rgba(0,0,0,0.75);
       text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
-      transition: transform .3s ease, box-shadow .3s ease;
+      transition: transform .35s ease, box-shadow .35s ease;
     }
 
     .pack:hover {
       transform: translateY(-6px);
-      box-shadow: 0 25px 60px rgba(0,0,0,.9);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
     }
 
     .recommended {
       position: absolute;
       top: -12px;
       right: -12px;
-      background: linear-gradient(135deg, var(--bronze), var(--gold));
+      background: linear-gradient(135deg, #b87333, #e0b878);
       color: #120c07;
-      padding: 6px
+      padding: 6px 14px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      border-radius: 20px;
+      animation: glow 2.5s infinite;
+      text-transform: uppercase;
+    }
+
+    .pack h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      color: #e0b878;
+      margin-bottom: 18px;
+    }
+
+    .pack ul {
+      padding-left: 18px;
+      margin-bottom: 26px;
+    }
+
+    .pack ul li {
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .buy {
+      margin-top: auto;
+      text-align: center;
+      padding: 15px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #b87333, #e0b878);
+      color: #120c07;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ================= CTA ================= */
+    .cta {
+      background: linear-gradient(135deg, #b87333, #e0b878);
+      color: #120c07;
+      text-align: center;
+      padding: 80px 18px;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .cta a {
+      background: #000;
+      color: #c9a36a;
+      padding: 14px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    footer {
+      background: #0f0f0f;
+      text-align: center;
+      padding: 26px 18px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    /* ================= DESKTOP ================= */
+    @media (min-width: 768px) {
+      body::before {
+        width: 420px;
+        height: 420px;
+        bottom: -160px;
+        right: -160px;
+      }
+
+      header h1 { font-size: 3.4rem; letter-spacing: 6px; }
+      .packs { grid-template-columns: repeat(3, 1fr); }
+      .section-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrapper">
+    <img src="IMG_20260122_004900_597.webp" alt="Logo Serra Cut Service" class="logo-animated">
+  </div>
+  <h1 class="title-with-icon">
+  <span class="title-inner">
+    <img src="file_000000005a68720ebda89e11eea0071b.png" alt="Instagram" class="title-icon">
+    <span class="title-text">SERRA CUT SERVICE</span>
+  </span>
+</h1>
+  <p>Reparación y Mantenimiento Profesional de Herramientas de Barbería y Peluquería</p>
+</header>
+
+<section class="intro">
+  <h2 class="section-title">Servicio Técnico Especializado</h2>
+  <p>No reparamos máquinas.</p>
+  <p>Garantizamos que tu trabajo no se detenga.</p>
+  <p>Trabajamos con paquetes de mantenimiento profesional para barberías que no pueden parar.</p>
+</section>
+
+<section>
+  <h2 class="section-title">Packs de Mantenimiento</h2>
+  <div class="packs">
+
+    <a class="pack" href="https://mpago.la/1jxGZbX" target="_blank">
+      <h3>🪛 Pack Esencial</h3>
+      <span>Mantenimiento Continuo</span>
+      <div class="price">$25.000 / mes</div>
+      <ul>
+        <li>1 mantenimiento mensual </li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de tijeras</li>
+        <li>10% OFF en repuestos</li>
+      </ul>
+      <div class="buy">Contratar Pack</div>
+    </a>
+
+    <a class="pack" href="https://mpago.la/2zxM2BK" target="_blank">
+      <div class="recommended">Recomendado</div>
+      <h3>💈 Pack Master</h3>
+      <span>Barbería sin fallas</span>
+      <div class="price">$40.000 / mes</div>
+      <ul>        
+        <li>2 mantenimientos mensuales</li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Prioridad de atención</li>    
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de Tijeras</li>
+        <li>Retiro y entrega a domicilio</li>
+        <li>Garantía extendida de 15 dias</li>
+        <li>25% OFF en repuestos</li>
+      </ul>
+      <div class="buy">Contratar Pack</div>
+    </a>
+
+    <a class="pack" href="https://mpago.la/1r8shQC" target="_blank">
+      <h3>⭐ Pack VIP</h3>
+      <span>Servicio Total</span>
+      <div class="price">$60.000 / mes</div>
+      <ul>
+        <li>4 mantenimientos mensuales </li>
+        <li>Limpieza profunda y lubricación</li>
+        <li>Maxima prioridad de atención</li>
+        <li>Ajuste de cuchillas</li>
+        <li>Afilado de Tijeras y mantenimiento de secadores y planchas</li>
+        <li>Retiro y entrega a domicilio</li>
+        <li>Garantía extendida de 30 dias</li>
+         <li>50% OFF en repuestos</li>
+      </ul>
+      <div class="buy">Contratar Pack</div>
+    </a>
+
+  </div>
+</section>
 
 
 
+<section class="cta">
+  <h2>Cuidá tu herramienta de trabajo</h2>
+  <p>Contactanos y asegurá el rendimiento de tus equipos.</p>
+  <a href="https://wa.me/5492983347461" target="_blank">WhatsApp</a>
+  <a href="https://instagram.com/serra_cut_service" target="_blank" style="display:inline-flex;align-items:center;gap:8px;"><img src="instagram.png" alt="Instagram" style="width:20px;height:20px;">Instagram</a>
+</section>
+
+<footer>
+  © Serra Cut Service – Reparación Profesional de Barbería
+</footer>
+
+
+
+  <script>
+    // Engranaje que responde al scroll (sutil y fluido)
+    let lastScrollY = window.scrollY;
+    let rotation = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      const delta = currentScroll - lastScrollY;
+      rotation += delta * 0.15; // velocidad suave
+
+      document.body.classList.add('scrolling');
+      document.body.style.setProperty('--gear-rotation', `${rotation}deg`);
+
+      document.body.style.setProperty(
+        '--gear-transform',
+        `rotate(${rotation}deg)`
+      );
+
+      document.body.style.setProperty('--gear-opacity', '0.1');
+
+      document.body.style.setProperty('--gear-filter', 'grayscale(100%) contrast(120%)');
+
+      document.body.style.setProperty('--gear-scale', '1');
+
+      document.body.style.setProperty('--gear-shadow', 'drop-shadow(0 0 25px rgba(0,0,0,0.8))');
+
+      document.body.style.setProperty('--gear-transition', 'transform 0.1s linear');
+
+      document.body.style.setProperty('--gear-rotate', rotation);
+
+      document.body.style.setProperty('--gear-style', `transform: rotate(${rotation}deg);`);
+
+      document.body.style.setProperty('--gear-custom', rotation);
+
+      document.body.style.setProperty('--gear', rotation);
+
+      document.body.style.setProperty('--rotation', rotation);
+
+      document.body.style.setProperty('--scroll-rotation', rotation);
+
+      document.body.style.setProperty('--gear-rotation', rotation);
+
+      document.body.style.setProperty('--gear-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-animation', 'none');
+
+      document.body.style.setProperty('--gear-active', '1');
+
+      document.body.style.setProperty('--gear-speed', 'scroll');
+
+      document.body.style.setProperty('--gear-scroll', rotation);
+
+      document.body.style.setProperty('--gear-value', rotation);
+
+      document.body.style.setProperty('--gear-css', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-inline', rotation);
+
+      document.body.style.setProperty('--gear-dynamic', rotation);
+
+      document.body.style.setProperty('--gear-live', rotation);
+
+      document.body.style.setProperty('--gear-final', rotation);
+
+      document.body.style.setProperty('--gear-transform-final', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-style-final', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-scroll-rotate', rotation);
+
+      document.body.style.setProperty('--gear-css-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-js', rotation);
+
+      document.body.style.setProperty('--gear-controlled', rotation);
+
+      document.body.style.setProperty('--gear-rotation-controlled', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-final-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-real', rotation);
+
+      document.body.style.setProperty('--gear-real-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-true', rotation);
+
+      document.body.style.setProperty('--gear-true-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-scroll-value', rotation);
+
+      document.body.style.setProperty('--gear-rotate-scroll', rotation);
+
+      document.body.style.setProperty('--gear-live-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-dynamic-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-visual', rotation);
+
+      document.body.style.setProperty('--gear-visual-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-motion', rotation);
+
+      document.body.style.setProperty('--gear-motion-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-scroll-motion', rotation);
+
+      document.body.style.setProperty('--gear-scroll-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-animated', rotation);
+
+      document.body.style.setProperty('--gear-animated-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-rotation-live', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-active-transform', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-rotation-active', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-transform-active', `rotate(${rotation}deg)`);
+
+      document.body.style.setProperty('--gear-scroll-active', rotation);
+
+      document.body.style.setProperty('--gear-scroll-transform-active', `rotate(${rotation}deg)`);
+
+      lastScrollY = currentScroll;
+    });
+  </script>
+</body>
+</html>
 
